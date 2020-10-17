@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  include Core
+
   def index
     render locals: { presenter: PagesIndexPresenter.new }
   end
