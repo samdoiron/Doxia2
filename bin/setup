@@ -20,4 +20,6 @@ FileUtils.chdir APP_ROOT do
     system!('bundle lock')
     system!('bundix')
   end
+
+  system!("yarn install")
 end
