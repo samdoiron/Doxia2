@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby --disable-gems
+
+cwd = File.expand_path(File.dirname(__FILE__))
+
+exec("nix-shell #{cwd}/../default.nix --command 'bin/rails test'")
