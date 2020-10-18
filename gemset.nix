@@ -231,6 +231,39 @@
     };
     version = "1.0.6";
   };
+  dry-auto_inject = {
+    dependencies = ["dry-container"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "10c90qyq07gbmwr0jjdsc335py2ji90vk132i5ng6lbcd4hs46hm";
+      type = "gem";
+    };
+    version = "0.7.0";
+  };
+  dry-configurable = {
+    dependencies = ["concurrent-ruby" "dry-core" "dry-equalizer"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "01vg6ln0m8vlx72pfdwl0l6n92chg9mglqwbb6rm4vrpxgxfglma";
+      type = "gem";
+    };
+    version = "0.11.6";
+  };
+  dry-container = {
+    dependencies = ["concurrent-ruby" "dry-configurable"];
+    groups = ["default"];
+    platforms = [];
+    source = {
+      remotes = ["https://rubygems.org"];
+      sha256 = "1npnhs3x2xcwwijpys5c8rpcvymrlab0y8806nr4h425ld5q4wd0";
+      type = "gem";
+    };
+    version = "0.7.2";
+  };
   dry-core = {
     dependencies = ["concurrent-ruby"];
     groups = ["default"];
