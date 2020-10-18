@@ -2,14 +2,16 @@ module Core
   class Handle
     extend Forwardable
 
-    def initialize(handle)
-      @handle = handle
+    def initialize(repo_handle)
+      @repo_handle = repo_handle
     end
 
-    def_delegators :handle, :fetch_pages_newest_to_oldest
+    def view_page_index
+      repo_handle.fetch_pages_newest_to_oldest
+    end
 
     private
 
-    attr_accessor :handle
+    attr_accessor :repo_handle
   end
 end
