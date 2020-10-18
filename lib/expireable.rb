@@ -1,13 +1,9 @@
-class Expireable
+class Expireable < SimpleDelegator
   class ExpiredError < RuntimeError; end
 
-  def initialize(target)
-    @target = target
-  end
-
-  def method_missing(method, *args)
-    raise ExpiredError if @expired
-    @target.public_send(method, *args)
+  def method_missing(*)
+    Kernel.send(:raise, ExpiredError) if @expired
+    super
   end
 
   def expire!
