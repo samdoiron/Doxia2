@@ -338,16 +338,6 @@
     };
     version = "1.8.5";
   };
-  in_memory = {
-    dependencies = ["dry-monads"];
-    groups = ["default"];
-    platforms = [];
-    source = {
-      path = lib/in_memory;
-      type = "path";
-    };
-    version = "1.0.0";
-  };
   jbuilder = {
     dependencies = ["activesupport"];
     groups = ["default"];

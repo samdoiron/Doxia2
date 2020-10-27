@@ -1,1 +1,0 @@
-Import = Dry::AutoInject(Rails.configuration.container)

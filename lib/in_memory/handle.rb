@@ -1,7 +1,3 @@
-require 'dry-monads'
-require 'in_memory/page_record'
-require 'core/page'
-
 module InMemory
   class Handle
     include Dry::Monads[:result]

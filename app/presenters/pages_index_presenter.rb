@@ -1,27 +1,27 @@
 class PagesIndexPresenter
+  Item = Struct.new(:id, :title, keyword_init: true)
   class PageItem
-    def initialize(page)
-      @page = page
+
+    def initialize(id:, title:)
+      @id = id
+      @title = title
     end
 
     def path
-      UrlHelpers.page_path(page.id)
+      UrlHelpers.page_path(id)
     end
 
-    def title
-      page.title
-    end
-  end
+    attr_reader :title
 
-  def initialize(given_pages)
-    @given_pages = given_pages
+    private
+
+    attr_reader :id
   end
 
   def pages
-    @pages ||= given_pages.map(&PageItem.method(:new))
+    [
+      PageItem.new(id: 'hello-world', title: 'Hello World'),
+        PageItem.new(id: 'goodbye-world', title: 'Goodbye World')
+    ]
   end
-
-  private
-
-  attr_reader :given_pages
 end

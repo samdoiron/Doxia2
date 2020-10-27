@@ -1,11 +1,8 @@
 class PagesController < ApplicationController
-  include Import['application']
+  include Core
 
   def index
-    application.transaction do |t|
-      pages = t.view_page_index
-      render locals: { presenter: PagesIndexPresenter.new(pages) }
-    end
+    render locals: { presenter: PagesIndexPresenter.new }
   end
 
   def show

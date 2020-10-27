@@ -1,5 +1,3 @@
-require 'forwardable'
-
 module Core
   class Handle
     extend Forwardable
