@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby --disable-gems
+
+cwd = File.expand_path(File.dirname(__FILE__))
+
+unless ENV['IN_NIX_SHELL']
+  require 'shellwords'
+  exec("nix-shell #{cwd}/../default.nix --command './scripts/test-core-watch #{ARGV.shelljoin}'")
+end
+
+unless ARGV.count == 1
+  puts "Usage: test-core-watch <fuzzy-name>"
+  exit(1)
+end
+
+Dir.chdir("gems/core") do
+  exec("find lib test -name '*.rb' | entr -c ./bin/tests-run")
+end

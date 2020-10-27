@@ -1,4 +1,4 @@
-class Expireable < SimpleDelegator
+class Expirable < SimpleDelegator
   class ExpiredError < RuntimeError; end
 
   def method_missing(...)

@@ -1,11 +1,13 @@
+require 'expirable'
+require 'in_memory/store'
+
 module InMemory
   class Repository
-
     def transaction
-      handle = Expireable.new(Handle.new(store: store))
+      handle = Expirable.new(Handle.new(store: store))
       yield handle
     ensure
-      handle.expire!
+      handle.expire! if handle
     end
 
     private

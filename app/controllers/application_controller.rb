@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   def core
-
   end
 
   def not_found

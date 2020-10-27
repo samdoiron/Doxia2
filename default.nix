@@ -1,14 +1,9 @@
 with (import <nixpkgs> {});
 
-let
-  gems = bundlerEnv {
-    ruby = ruby_2_7;
-    name = "gems-for-doxia";
-    gemdir = ./.;
-  };
-in mkShell {
+mkShell {
   buildInputs = [
-    nodejs-14_x nodePackages.yarn
-    gems gems.wrappedRuby bundix 
+    entr
+    ruby_2_7
+    nodejs-13_x nodePackages.yarn
   ];
 }

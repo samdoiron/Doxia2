@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby --disable-gems
+
+cwd = File.expand_path(File.dirname(__FILE__))
+
+unless ENV['IN_NIX_SHELL']
+  require 'shellwords'
+  exec("nix-shell #{cwd}/../default.nix --command './scripts/test-core-run #{ARGV.shelljoin}'")
+end
+
+Dir.chdir("gems/core") do
+  system("./bin/tests-run") if File.exists?('./bin/tests-run')
+end

@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby --disable-gems
+
+cwd = File.expand_path(File.dirname(__FILE__))
+
+test_path = ARGV.first
+
+unless test_path
+  STDERR.puts "Usage: scripts/test-watch <test-path>"
+  exit 1
+end
+
+unless ENV['IN_NIX_SHELL']
+  exec("nix-shell #{cwd}/../default.nix --command 'scripts/test-watch #{test_path}'")
+end
+
+exec("find . -type f -name '*.rb' | entr -c ruby -Itest #{test_path}")
