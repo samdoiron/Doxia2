@@ -16,9 +16,7 @@ FileUtils.chdir APP_ROOT do
   puts '== Installing dependencies =='
   system! 'gem install bundler --conservative'
   unless system('bundle check')
-    system!('rm -f Gemfile.lock')
-    system!('bundle lock')
-    system!('bundix')
+    system!('bundle install')
   end
 
   system!("yarn install")

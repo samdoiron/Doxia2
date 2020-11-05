@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby --disable-gems
 
 cwd = File.expand_path(File.dirname(__FILE__))
-exec("nix-shell #{cwd}/../deps-update.nix --command './bin/setup'")
+exec("nix-shell --pure #{cwd}/../deps-update.nix --command './bin/setup'")
 

@@ -13,7 +13,7 @@ module InMemory
     end
 
     test "#transaction provided handle expires after transaction completes" do
-      assert_raises Expireable::ExpiredError do
+      assert_raises Expirable::UseAfterExpire do
         handle = Repository.new.transaction { |t| t }
         handle.fetch_pages_newest_to_oldest
       end

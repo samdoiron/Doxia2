@@ -1,14 +1,13 @@
 with (import <nixpkgs> {});
 
-let
-  gems = bundlerEnv {
-    ruby = ruby_2_7;
-    name = "gems-for-doxia";
-    gemdir = ./.;
-  };
+let bundler = pkgs.bundler.override { ruby = jruby; };
 in mkShell {
   buildInputs = [
-    nodejs-14_x nodePackages.yarn
-    gems gems.wrappedRuby bundix 
+    jruby
+    nodejs-13_x nodePackages.yarn
   ];
+  shellHook = ''
+  export GEM_HOME=$HOME/.gems/jruby-doxia
+  export PATH=$PATH:"$HOME/.gems/jruby-doxia/bin"
+  '';
 }

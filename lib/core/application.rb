@@ -7,10 +7,10 @@ module Core
     def transaction
       repo.transaction do |repo_handle|
         begin
-          handle = Expireable.new(Handle.new(repo_handle))
+          handle = Expirable.new(Handle.new(repo_handle))
           yield handle
         ensure
-          handle.expire!
+          handle.expire! if handle
         end
       end
     end
