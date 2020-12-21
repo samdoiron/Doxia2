@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get '/', to: 'pages#index'
 
-  resources :pages, only: %i(index show)
+  resources :pages, only: %i(index show new)
 end
