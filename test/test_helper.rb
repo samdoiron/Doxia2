@@ -4,7 +4,9 @@ require 'rails/test_help'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
-  parallelize(workers: :number_of_processors)
+
+  # 1 worker because jruby doesn't support fork(2)
+  parallelize(workers: 1)
 
   # Add more helper methods to be used by all tests here...
 end
