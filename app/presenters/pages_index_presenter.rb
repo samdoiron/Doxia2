@@ -18,6 +18,10 @@ class PagesIndexPresenter
     @page_records = page_records
   end
 
+  def create_new_page_path
+    UrlHelpers.new_page_path
+  end
+
   def pages
     @page_records.map { |record| PageItem.new(record) }
   end

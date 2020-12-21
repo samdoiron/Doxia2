@@ -1,6 +1,5 @@
 module InMemory
   class Repository
-
     def transaction
       handle = Expirable.new(Handle.new(store: store))
       yield handle

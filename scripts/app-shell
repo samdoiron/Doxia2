@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby --disable-gems
-
-cwd = File.expand_path(File.dirname(__FILE__))
-exec("nix-shell --pure #{cwd}/../default.nix")
-

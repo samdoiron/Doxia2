@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '~> 2.5.7', engine: 'jruby', engine_version: '9.2.11.1'
+ruby '~> 2.5.8'
 
 gem 'puma'
 

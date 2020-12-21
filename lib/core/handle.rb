@@ -10,6 +10,10 @@ module Core
       repo_handle.fetch_pages_newest_to_oldest
     end
 
+    def show_page(slug)
+      repo_handle.fetch_page_by_slug(slug)
+    end
+
     private
 
     attr_accessor :repo_handle

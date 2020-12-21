@@ -1,3 +1,3 @@
 module Core
-  Page = Struct.new(:handle, :title, :created_at, keyword_init: true)
+  Page = Struct.new(:slug, :title, :created_at, keyword_init: true)
 end
